@@ -20,7 +20,7 @@ webpackConfig = module.exports = {
   entry: "./client/scripts/index.js",
   output: {
     path: Path.resolve(__dirname, "./public/assets"),
-    publicPath: "assets/",
+    publicPath: "/assets/",
     filename: (IS_PRODUCTION ? "[hash].js" : "bundle.js"),
   },
   resolve: {
@@ -33,7 +33,6 @@ webpackConfig = module.exports = {
   },
   module: {
     loaders: [
-      { test: require.resolve("react/addons"), loader: "expose-loader?React" },
       { test: /\.js(x?)$/, loaders: JSX_WITH_HOT_LOEADERS },
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.css$/, loader: CSS_LOADER },
