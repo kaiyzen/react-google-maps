@@ -19,7 +19,7 @@ var Path = require("path"),
 webpackConfig = module.exports = {
   entry: "./client/scripts/index.js",
   output: {
-    path: Path.resolve(__dirname, "../public/assets"),
+    path: Path.resolve(__dirname, "./public/assets"),
     publicPath: "assets/",
     filename: (IS_PRODUCTION ? "[hash].js" : "bundle.js"),
   },

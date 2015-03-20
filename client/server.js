@@ -4,7 +4,7 @@ var http = require("http");
 var finalhandler = require("finalhandler");
 var serveStatic = require("serve-static");
 
-var serve = serveStatic(Path.resolve(__dirname, "../public"));
+var serve = serveStatic(Path.resolve(__dirname, "./public"));
 
 http.createServer(function (request, response) {
 //   if ("/server-render" === request.url) {
