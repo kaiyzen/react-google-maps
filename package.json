@@ -9,7 +9,7 @@
     "build_client": "webpack -p --config ./client/webpack.config.js",
     "test": "jest",
     "dev_install": "npm install && npm dedupe && bower install",
-    "dev": "webpack --config ./client/webpack.config.js && webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public"
+    "dev": "webpack --config ./client/webpack.config.js && webpack-dev-server --config ./client/webpack.config.js --inline --hot"
   },
   "repository": {
     "type": "git",

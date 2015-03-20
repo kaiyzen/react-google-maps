@@ -53,6 +53,9 @@ webpackConfig = module.exports = {
       filename: "../index.html"
     }),
   ],
+  devServer: {
+    contentBase: Path.resolve(__dirname, "../public"),
+  },
 };
 
 if (IS_PRODUCTION) {
