@@ -1,5 +1,8 @@
 var Path = require("path");
+var webpack = require("webpack");
 var webpackConfig = require("./webpack.config");
+
+webpackConfig.entry = "./client/scripts/server.js",
 
 webpackConfig.output = {
   path: Path.resolve(__dirname, "./"),
@@ -22,5 +25,11 @@ webpackConfig.module.loaders.forEach(function (module, index) {
     module.loader = "null-loader";
   }
 });
+
+webpackConfig.plugins.push(
+  new webpack.DefinePlugin({
+    "window": false,
+  })
+);
 
 module.exports = webpackConfig;

@@ -2,4 +2,4 @@
 var React = require("react/addons");
 var IsomorphicApp = require("./IsomorphicApp");
 
-React.render(<IsomorphicApp />, document.body);
+React.render(<IsomorphicApp />, document);

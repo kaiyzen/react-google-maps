@@ -63,7 +63,7 @@ GettingStarted = React.createClass({
   _render (props, state) {
     return <div style={{height: "100%"}} {...props}>
       <ToastContainer ref="toast" toastMessageFactory={React.createFactory(ToastMessage.jQuery)}/>
-      <Map ref="map" style={{height: "100%"}} zoom={3} center={new google.maps.LatLng(-25.363882, 131.044922)} onClick={this._handle_map_click} />
+      <Map ref="map" style={{height: "100%"}} zoom={3} center={{lat: -25.363882, lng: 131.044922}} onClick={this._handle_map_click} />
       {state.markers.map(toMarker, this)}
     </div>;
 
@@ -80,6 +80,7 @@ module.exports = React.createClass({
   mixins: [require("../ReactFutureMixin")],
 
   _render (props, state) {
-    return <GettingStarted googleMapsApi={google.maps} {...props} />;
+    var googleMapsApi = window && google.maps || null;
+    return <GettingStarted googleMapsApi={googleMapsApi} {...props} />;
   }
 });

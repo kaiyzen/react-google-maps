@@ -147,7 +147,7 @@ IsomorphicApp = React.createClass({
   mixins: [require("./ReactFutureMixin")],
 
   getInitialState () {
-    var hash = location.hash || ACTIONS[0].path,
+    var hash = (window && location.hash) || ACTIONS[0].path,
         action = ALL_ACTIONS.filter((action) => { return action.path === hash; })[0];
 
     return {
@@ -162,18 +162,30 @@ IsomorphicApp = React.createClass({
   _render (props, state) {
     var {action} = state;
 
-    return <div id="react-root">
-      <NavHeaderBar activeActionKey={action.key} onNavigateTo={this._handle_navigate} actions={ACTIONS} dropdownActions={DROPDOWN_ACTIONS} rightActions={RIGHT_ACTIONS} />
+    return (
+      <html>
+        <head>
+          <title>React Google Maps | tomchentw</title>
+          <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+          <script type="text/javascript" src="/prism.min.js"></script>
+          <script type="text/javascript" src="/assets/bundle.js"></script>
+        </head>
+        <body>
+          <div id="react-root">
+            <NavHeaderBar activeActionKey={action.key} onNavigateTo={this._handle_navigate} actions={ACTIONS} dropdownActions={DROPDOWN_ACTIONS} rightActions={RIGHT_ACTIONS} />
 
-      <div className="container-fluid container--full-height">
-        <div className="github-fork-ribbon-wrapper right">
-          <div className="github-fork-ribbon" style={{backgroundColor: "#333"}}>
-            <a href="https://github.com/tomchentw/react-google-maps">Fork me on GitHub</a>
+            <div className="container-fluid container--full-height">
+              <div className="github-fork-ribbon-wrapper right">
+                <div className="github-fork-ribbon" style={{backgroundColor: "#333"}}>
+                  <a href="https://github.com/tomchentw/react-google-maps">Fork me on GitHub</a>
+                </div>
+              </div>
+              <ComponentPlayground className="row row--full-height" {...action.component} />
+            </div>
           </div>
-        </div>
-        <ComponentPlayground className="row row--full-height" {...action.component} />
-      </div>
-    </div>;
+        </body>
+      </html>
+    );
   }
 });
 

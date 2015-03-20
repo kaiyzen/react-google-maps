@@ -2,10 +2,12 @@
 var React = require("react/addons"),
 
     {GoogleMapsMixin, Map, InfoWindow, Circle} = require("react-google-maps"),
-    {geolocation} = navigator,
+    geolocation,
     Geolocation;
 
-if (!geolocation) {
+if (window && navigator) {
+  geolocation = navigator.geolocation;
+} else {
   geolocation = {
     getCurrentPosition: (success, failure) => { failure("Your browser doesn't support geolocation."); }
   };
