@@ -54,7 +54,9 @@ webpackConfig = module.exports = {
     }),
   ],
   devServer: {
-    contentBase: Path.resolve(__dirname, "../public"),
+    contentBase: {
+      target: "http://localhost:3000",
+    },
   },
 };
 
