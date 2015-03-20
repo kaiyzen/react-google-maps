@@ -4,6 +4,8 @@ var webpackConfig = require("./webpack.config");
 webpackConfig.output = {
   path: Path.resolve(__dirname, "./"),
   filename: "server-bundle.js",
+  library: true,
+  libraryTarget: "commonjs2",
 };
 
 webpackConfig.target = "node";

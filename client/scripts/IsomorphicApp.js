@@ -10,7 +10,6 @@ var React = require("react/addons"),
     NavHeaderBar = require("./NavHeaderBar"),
     ComponentPlayground = require("./ComponentPlayground"),
     Body,
-    bodyComponent,
 
     ACTIONS,
     DROPDOWN_ACTIONS,
@@ -142,8 +141,8 @@ RIGHT_ACTIONS = [
 
 ALL_ACTIONS = ACTIONS.concat(DROPDOWN_ACTIONS.filter((x) => { return !!x; })).concat(RIGHT_ACTIONS);
 
-Body = React.createClass({
-  displayName: "Body",
+IsomorphicApp = React.createClass({
+  displayName: "IsomorphicApp",
 
   mixins: [require("./ReactFutureMixin")],
 
@@ -178,4 +177,4 @@ Body = React.createClass({
   }
 });
 
-bodyComponent = React.render(<Body />, document.body);
+module.exports = IsomorphicApp;

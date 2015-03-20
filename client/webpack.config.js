@@ -17,7 +17,7 @@ var Path = require("path"),
     });
 
 webpackConfig = module.exports = {
-  entry: "./client/scripts/index.js",
+  entry: "./client/scripts/client.js",
   output: {
     path: Path.resolve(__dirname, "./public/assets"),
     publicPath: "/assets/",
