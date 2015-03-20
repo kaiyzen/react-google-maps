@@ -4,3 +4,4 @@
 public/assets
 public/index.html
 public/*.gz
+server-bundle.js
